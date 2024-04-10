@@ -1,10 +1,12 @@
 //create cars api using express
 const express = require('express');
 const app = express();
+var cors = require('cors');
 
 
 
 app.use(express.json());
+app.use(cors());
 
 const cars = require('./cars.json');
 
@@ -47,6 +49,6 @@ app.post('/cars', (req, res) => {
 });
 
 //start app at localhost:3001
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log('Server started at http://localhost:3001');
 });
